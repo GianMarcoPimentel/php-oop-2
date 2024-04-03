@@ -1,3 +1,13 @@
+<?php
+
+require './Models/Product.php';
+
+$product = new Product("Guinzaglio", 12, $categoria);
+$product2 = new Product("Crocchette", 20, $categoria2);
+
+var_dump($product);
+var_dump($product2);
+?>
 
 
 
