@@ -2,8 +2,8 @@
 include './Models/Categoria.php';
 
 
-$categoria = new Categoria('Cane', 'fa-solid fa-dog');
-$categoria2 = new Categoria('Gatto', 'fa-solid fa-cat');
+$cani = new Categoria('Cane', 'fa-solid fa-dog');
+$gatti = new Categoria('Gatto', 'fa-solid fa-cat');
 
 /* var_dump( $categoria);
 var_dump( $categoria2); */
@@ -17,16 +17,21 @@ class Product {
     public $titolo;
     public $prezzo;
     public $categoria;
-    
+    public $is_valid;
+    public $quantita;
+  
     /**
      * __construct
      *
+     * @param  string $_image
      * @param  string $_titolo
      * @param  int $_prezzo
      * @param  Categoria $_categoria
+     * @param  boolean $is_valid
+     * @param  int $quantita
      * @return void
      */
-    public function __construct($_image, $_titolo, $_prezzo, Categoria $_categoria) {
+    public function __construct($_image, $_titolo, $_prezzo, Categoria $_categoria, $is_valid, $quantita) {
         $this->image = $_image;
         $this->titolo = $_titolo;
         $this->prezzo = $_prezzo;

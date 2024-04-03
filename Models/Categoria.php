@@ -10,4 +10,6 @@ class Categoria {
         $this->name = $name;
         $this->icon = $icon;
     }
+
+    
 }
