@@ -1,15 +1,6 @@
 <?php
 
 
-
-
-
-
-
-
-/* var_dump( $categoria);
-var_dump( $categoria2); */
-
 /**
  * Product
  * caratteristiche prodotto

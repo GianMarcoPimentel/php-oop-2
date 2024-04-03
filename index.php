@@ -42,24 +42,62 @@ var_dump($product2); */
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <h1>E-Commerce</h1>
+    <div class="container text-center p-3 text-uppercase ">
+        <h1 class="" >E-Commerce</h1>
     </div>
-        <?php foreach ($products as $product){ 
-            ?>
-    <div class="container">
-    <div class="card" style="width: 18rem;">
-        <img src='<?= $product->image ?>' class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title product-titolo"> <?= $product->titolo ?> </h5>
-            <p class="card-text product-price"> € : <?= $product->prezzo ?>  </p>
-            <p class="card-text product-price"> Categoria: <?= $product->categoria->name ?>  </p>
-            <p class="card-text product-price">  <?= $product->getCategoria(); ?> </p>
-        </div>
-    </div>
-    </div>
-    <?php
-        }
+    <div class="container my-bg">
+
+        <div class="d-flex align-items-center justify-content-between container p-5">
+    <?php foreach ($products as $product){ 
         ?>
+
+            <div class="container">
+            <div class="card col-6" style="width: 18rem;">
+                <img src='<?= $product->image ?>' class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title product-titolo text-primary fs-3"> <?= $product->titolo ?> </h5>
+                    <p class="card-text product-price fs-2"> € : <?= $product->prezzo ?>  </p>
+                    <p class="card-text product-price text-secondary "> Categoria: <?= $product->categoria->name ?>  </p>
+                    <p class="card-text product-icon d-flex align-items-center justify-content-center">  <?= $product->getCategoria(); ?> </p>
+                </div>
+            </div>
+            </div>
+            <?php
+                }
+                ?>
+        </div>
+
+    </div>
+        <style>
+
+            .my-bg{
+                width: 100%;
+                background-image: url("https://www.maniarreda.it/img_up/prop/big/20190227174612-225.jpg");
+                
+               
+            }
+            img{
+                height: 500px;
+                width: 100%;
+                object-fit: contain;
+            }
+
+           .product-price{
+            font-size: 15px;
+           }
+            .product-icon{
+                position: absolute;
+                top:10px;
+                right:20px;
+
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                padding: 5px;
+                background-color: red;
+                font-size: 20px;
+            }
+
+        </style>
 </body>
 </html>
