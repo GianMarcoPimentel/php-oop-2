@@ -30,7 +30,8 @@ var_dump($product2);
         <div class="card-body">
             <h5 class="card-title product-titolo"> <?= $product->titolo ?> </h5>
             <p class="card-text product-price"> <?= $product->prezzo ?>  </p>
-            <p class="card-text product-price"> </p>
+            <p class="card-text product-price"> Categoria: <?= $product->categoria->name ?>  </p>
+            <p class="card-text product-price">  <?= $product->categoria->icon ?> </p>
         </div>
     </div>
     </div>
