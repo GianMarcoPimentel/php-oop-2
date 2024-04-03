@@ -1,10 +1,27 @@
 <?php
 
-require './Models/Product.php';
+require   './Models/Product.php';
+require   './Models/Categoria.php';
+require   './Models/Cibo.php';
+require   './Models/Giochi.php';
+require   './Models/Accessori.php';
+
+// inserisco le categorie
+$cani = new Categoria('Cane', 'fa-solid fa-dog');
+$gatti = new Categoria('Gatto', 'fa-solid fa-cat');
+
+
+// creo oggetti individuali (istanze) 
+
+$accessorio = new Accessori('https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc','Guinzaglio', 12.33, $cani,true,1);
+$cibo = new Cibo ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ-yQb2N7RbOuCZJAx0XPBDb_9bw1FogFkg&s", "Crocchette", 20.99, $gatti,true,3);
+$gioco = new Gioco ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWaPUUFX8JQn5jTfuaQIHi-BctMfhgOqBQQ&s","Osso di plastica", 10.55, $cani,true,10);
+
 
 $products = [
-    new Product("https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc","Guinzaglio", 12.33, $cani,true,2),
-    new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ-yQb2N7RbOuCZJAx0XPBDb_9bw1FogFkg&s", "Crocchette", 20.99, $gatti,true,3),
+    $accessorio,
+    $cibo,
+    $gioco,
 ];
 
 /* var_dump($product);

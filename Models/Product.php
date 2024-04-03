@@ -1,9 +1,11 @@
 <?php
-include './Models/Categoria.php';
 
 
-$cani = new Categoria('Cane', 'fa-solid fa-dog');
-$gatti = new Categoria('Gatto', 'fa-solid fa-cat');
+
+
+
+
+
 
 /* var_dump( $categoria);
 var_dump( $categoria2); */
