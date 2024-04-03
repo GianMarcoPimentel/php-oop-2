@@ -2,8 +2,8 @@
 
 require './Models/Product.php';
 
-$product = new Product("Guinzaglio", 12, $categoria);
-$product2 = new Product("Crocchette", 20, $categoria2);
+$product = new Product("https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc","Guinzaglio", 12, $categoria);
+$product2 = new Product("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ-yQb2N7RbOuCZJAx0XPBDb_9bw1FogFkg&s", "Crocchette", 20, $categoria2);
 
 var_dump($product);
 var_dump($product2);
@@ -23,7 +23,16 @@ var_dump($product2);
 <body>
     <div class="container">
         <h1>E-Commerce</h1>
-
+    </div>
+    <div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src='https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc' class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title product-titolo"> <?= $product->titolo ?> </h5>
+            <p class="card-text product-price"> <?= $product->prezzo ?>  </p>
+            <p class="card-text product-price"> </p>
+        </div>
+    </div>
     </div>
 </body>
 </html>

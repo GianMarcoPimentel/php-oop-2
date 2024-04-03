@@ -12,7 +12,7 @@ var_dump( $categoria2);
  * caratteristiche prodotto
  */
 class Product {
-   /*  public $image; */
+    public $image;
     public $titolo;
     public $prezzo;
     public $categoria;
@@ -25,7 +25,8 @@ class Product {
      * @param  Categoria $_categoria
      * @return void
      */
-    public function __construct($_titolo, $_prezzo, Categoria $_categoria) {
+    public function __construct($_image, $_titolo, $_prezzo, Categoria $_categoria) {
+        $this->image = $_image;
         $this->titolo = $_titolo;
         $this->prezzo = $_prezzo;
         $this->categoria = $_categoria;
