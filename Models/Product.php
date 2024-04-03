@@ -2,8 +2,8 @@
 include './Models/Categoria.php';
 
 
-$categoria = new Categoria('Cane', '<i class="fa-solid fa-dog"></i>');
-$categoria2 = new Categoria('Gatto', '<i class="fa-solid fa-cat"></i>');
+$categoria = new Categoria('Cane', 'fa-solid fa-dog');
+$categoria2 = new Categoria('Gatto', 'fa-solid fa-cat');
 
 /* var_dump( $categoria);
 var_dump( $categoria2); */
@@ -33,4 +33,9 @@ class Product {
         $this->categoria = $_categoria;
     }
     
+    public function getCategoria(){
+        $icon= $this->categoria->icon;
+        return "<i class='$icon'></i>";
+
+    }
 }
