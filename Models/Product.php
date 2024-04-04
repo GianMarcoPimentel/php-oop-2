@@ -30,7 +30,13 @@ class Product {
     public function __construct($_image, $_titolo, $_prezzo, Categoria $_categoria, $is_valid, $quantita) {
         $this->image = $_image;
         $this->titolo = $_titolo;
-        $this->prezzo = $_prezzo;
+        //controllo che il prezzo sia un numero
+        if(is_numeric($_prezzo) && $_prezzo > 0) {
+            $this->prezzo = $_prezzo;
+
+        } else {
+            die("Inserisci il prezzo come numero");
+        }
         $this->categoria = $_categoria;
     }
     
