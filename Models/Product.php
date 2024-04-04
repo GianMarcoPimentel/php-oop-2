@@ -1,11 +1,14 @@
 <?php
 
+/* require  __DIR__ . '/Categoria.php'; */
+//posso dichiarare il percorso anceh cosi , cancellandolo dall'index.php
 
 /**
  * Product
  * caratteristiche prodotto
  */
 class Product {
+    /* public $id; */
     public $image;
     public $titolo;
     public $prezzo;
@@ -18,7 +21,7 @@ class Product {
      *
      * @param  string $_image
      * @param  string $_titolo
-     * @param  int $_prezzo
+     * @param  float $_prezzo
      * @param  Categoria $_categoria
      * @param  boolean $is_valid
      * @param  int $quantita

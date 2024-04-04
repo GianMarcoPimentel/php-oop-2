@@ -2,9 +2,13 @@
 
 require   './Models/Product.php';
 require   './Models/Categoria.php';
+require   './Models/Client.php';
 require   './Models/Cibo.php';
 require   './Models/Giochi.php';
 require   './Models/Accessori.php';
+
+require_once './Models/Client.php';
+require_once './Models/PremiumClient.php';
 
 // inserisco le categorie
 $cani = new Categoria('Cane', 'fa-solid fa-dog');
@@ -13,9 +17,9 @@ $gatti = new Categoria('Gatto', 'fa-solid fa-cat');
 
 // creo oggetti individuali (istanze) 
 
-$accessorio = new Accessori('https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc','Guinzaglio', 12.33, $cani,true,1);
-$cibo = new Cibo ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ-yQb2N7RbOuCZJAx0XPBDb_9bw1FogFkg&s", "Crocchette", 20.99, $gatti,true,3);
-$gioco = new Gioco ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWaPUUFX8JQn5jTfuaQIHi-BctMfhgOqBQQ&s","Osso di plastica", 10.55, $cani,true,10);
+$accessorio = new Accessori('https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc','Guinzaglio', 12.33, $cani,true,1," 1 metro");
+$cibo = new Cibo ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ-yQb2N7RbOuCZJAx0XPBDb_9bw1FogFkg&s", "Crocchette", 20.99, $gatti,true,3,0.5,"pesce","10/24");
+$gioco = new Gioco ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWaPUUFX8JQn5jTfuaQIHi-BctMfhgOqBQQ&s","Osso di plastica", 10.55, $cani,true,10,"silicone");
 
 
 $products = [
@@ -26,6 +30,28 @@ $products = [
 
 /* var_dump($product);
 var_dump($product2); */
+
+/* $client = new Client ("gian","gain@email.com");
+var_dump($client);
+
+$client->addTocart($food);
+$client->addTocart($gioco);
+
+echo 'Totale : ' . $client->getCartTotal() .''; */
+
+// creo un nuovo cliente
+$client = new Client("gian@email.com", "Via del codice 47");
+
+$client->addToCart($cibo);
+$client->addToCart($gioco);
+
+// var_dump($client);
+
+$premiumClient = new PremiumClient("mario@mail.com", "Via dei Funghi 1", "mariobros");
+$premiumClient->addToCart($cibo);
+$premiumClient->addToCart($gioco);
+//var_dump($premiumClient);
+
 ?>
 
 
@@ -66,6 +92,14 @@ var_dump($product2); */
                 }
                 ?>
         </div>
+
+    </div>
+    <div class="container">
+        <?php
+        echo "totale utente normale: " . $client->getCartTotal() . "<br>";
+
+        echo "totale utente premium: " . $premiumClient->getCartTotal();
+        ?>
 
     </div>
         <style>
