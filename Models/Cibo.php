@@ -1,9 +1,11 @@
 <?php
 
 require_once __DIR__ ."/Product.php";
+require_once __DIR__ . '/Traits/HasWeight.php';
+
 class Cibo extends Product {
 
-    public $weight;
+    use HasWeight;
     public $mainIngredient;
     public $expireDate;
 
