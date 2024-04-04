@@ -35,7 +35,8 @@ class Product {
             $this->prezzo = $_prezzo;
 
         } else {
-            die("Inserisci il prezzo come numero");
+           // die("Inserisci il prezzo come numero");
+           throw new Exception("Inserisci il prezzo correttamente , deve essere un numero");
         }
         $this->categoria = $_categoria;
     }

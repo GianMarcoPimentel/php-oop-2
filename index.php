@@ -15,24 +15,31 @@ $cani = new Categoria('Cane', 'fa-solid fa-dog');
 $gatti = new Categoria('Gatto', 'fa-solid fa-cat');
 
 
-// creo oggetti individuali (istanze) 
 
-$accessorio = new Accessori('https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc','Guinzaglio', "cinchie", $cani,true,1," 1 metro","plastic and cloth");
-$cibo = new Cibo ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ-yQb2N7RbOuCZJAx0XPBDb_9bw1FogFkg&s", "Crocchette", 20.99, $gatti,true,3,0.5,"pesce","10/24");
-$gioco = new Gioco ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWaPUUFX8JQn5jTfuaQIHi-BctMfhgOqBQQ&s","Osso di plastica", 10.55, $cani,true,10,"20 cm","10 g","silicone");
+$error = null;
+try{
+    // creo oggetti individuali (istanze) 
 
+    $accessorio = new Accessori('https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTyxDlC5CNtrS9aMH1ZWO761HYIKglsHyRxs9dBz4I9z_7lhurXbCWjmJCZihdymYZ-sTZaUgWNSrTrrErOGOdoivIPLtmzh-4rst7qTDjWEAO1dh0NVRhB8LGjRxRPKX774fvKtvuuzQ&usqp=CAc','Guinzaglio', 12.33, $cani,true,1," 1 metro","plastic and cloth");
+    $cibo = new Cibo ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ-yQb2N7RbOuCZJAx0XPBDb_9bw1FogFkg&s", "Crocchette", 20.99, $gatti,true,3,0.5,"pesce","10/24");
+    $gioco = new Gioco ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWaPUUFX8JQn5jTfuaQIHi-BctMfhgOqBQQ&s","Osso di plastica", 10.55, $cani,true,10,"20 cm","10 g","silicone");
 
-// creo un nuovo accessorio                                                                                        
-$catena = new Accessori ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-5IlMPNARfTK1FOHbxT98vhjSgxxlaIjmmw&s","catena", 10, $cani, true, 5, "2 metri","inox");
-//var_dump($catena); 
+    // creo un nuovo accessorio  
+    $catena = new Accessori ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-5IlMPNARfTK1FOHbxT98vhjSgxxlaIjmmw&s","catena", "sofia", $cani, true, 5, "2 metri","inox");
+    //var_dump($catena); 
 
-// creo un nuovo gioco 
-$tiraGraffi = new Gioco ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4y5IWpx6RZO8830kQobXy0h5w0Mgul-SjKA&s", "Tiragraffi", 50, $gatti, true, 20, "1 metro","1 Kg", "corda di juta");
-//var_dump( $tiraGraffi);
+    // creo un nuovo gioco 
+    $tiraGraffi = new Gioco ("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4y5IWpx6RZO8830kQobXy0h5w0Mgul-SjKA&s", "Tiragraffi", 50, $gatti, true, 20, "1 metro","1 Kg", "corda di juta");
+    //var_dump( $tiraGraffi);
 
-// creo un nuovo cibo
+    // creo un nuovo cibo
 
-$bustine = new Cibo ("https://arcaplanet.vtexassets.com/arquivos/ids/280015/MAIN.jpg?v=638113572973900000","umido per gatti",7.55, $gatti, true,100,0.085,"meat","11/33");
+    $bustine = new Cibo ("https://arcaplanet.vtexassets.com/arquivos/ids/280015/MAIN.jpg?v=638113572973900000","umido per gatti",7.55, $gatti, true,100,0.085,"meat","11/33");
+
+} catch (Exception $e) {
+     
+     $error = "Errore : ". $e->getMessage() ."";
+}                                                                                  
 
 $products = [
     $accessorio,
@@ -78,6 +85,16 @@ $premiumClient->addToCart($gioco);
 <body>
     <div class="container text-center p-3 text-uppercase ">
         <h1 class="" >E-Commerce</h1>
+
+        <?php
+    if ($error) {
+        ?>
+        <div class="alert alert-warning" role="alert">
+            <?= $error ?>
+        </div>
+        <?php
+    }
+        ?>
     </div>
     <div class="container my-bg">
 
