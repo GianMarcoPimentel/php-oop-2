@@ -2,14 +2,15 @@
 
 require_once __DIR__ ."/Product.php";
 
+require_once __DIR__ . '/Traits/Dimensionable.php';
+
 class Gioco extends Product {
 
-    public $size;
-    public $materiale;
-    public function __construct($_image, $_titolo, $_prezzo, Categoria $_categoria, $is_valid, $_quantita, $_size, $_materiale) {
+   use Dimensionable;
+    public function __construct($_image, $_titolo, $_prezzo, Categoria $_categoria, $is_valid, $_quantita, $_size, $_material) {
             parent::__construct($_image, $_titolo, $_prezzo, $_categoria, $is_valid, $_quantita);
             $this->size = $_size;
-            $this->materiale = $_materiale;
+            $this->material = $_material;
     }
-    
+
 }
